@@ -1,0 +1,541 @@
+/* Globals */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* REMOVE default margins */
+body,
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+/* USE this new class to float elements right */
+.float-right {
+    float: right; 
+}
+
+/* USE this new class to float elements left */
+.float-left {
+    float: left; 
+}
+
+/* USE this new class to change text color to blue  */
+.text-blue {
+    color: darkblue;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Header */
+.header {
+    /* text-align: center;
+    padding: 20px; */
+    background-image: url("https://images8.alphacoders.com/677/thumb-1920-677959.png"); 
+    color :#FFE4E1;  
+}
+
+/* ADD alignment and padding here instead */
+.header h1 {
+    padding: 40px 0 25px;
+    text-align: center;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 5px 0 0; /* ADD a little right padding */
+    overflow: hidden;
+    background-color: #17252A;
+}
+  
+.header li {
+    /* float: left; */
+    display: inline-block; /* set list items side by side */
+}
+
+.header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* menu icon */
+.header li a.menu {
+    font-size: 40px;
+    color: lightgray;
+    padding: 2px 5px;
+}
+
+.header li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: darkgray;
+}
+
+/* Homepage */
+
+/* USE css class selector instead of body element, because you have different backgrounds on each page */
+/* apart form global syles, it is always better to use class selectors instead of elements for styles */
+.homepage {
+   background-image: url("https://cdn.hipwallpaper.com/m/44/21/3xT6Dl.jpg");
+   padding: 0 12px;
+}
+
+.homepage h4 {margin: 20px 30px;
+              font-size:20px;
+     
+
+}
+
+.responsive {
+    /* padding: 0 6px;
+    float: left; 
+    width: 24.99999%; */
+    display: flex; /* USE Flexbox instead of floats */
+    flex-wrap: wrap; /* USE Flexbox instead of floats */
+}
+
+.gallery {
+    border: none;
+    margin-right: 12px; /* USE margin for spacing */
+    width: calc((100% - 36px) / 4); /* 36px = 3 x right margin */
+}
+
+.gallery:nth-of-type(4n) {
+    margin-right: 0; /* remove right margin form every 4th item */
+}
+
+.gallery:hover {
+    border: 1px dotted blue;
+}
+  
+.gallery img {
+    width: 100%;
+    /* height: auto; */
+}
+  
+@media only screen and (max-width: 700px) {
+    /* CHANGE form responsive class to gallery */
+    .gallery {
+        /* width: 49.99999%;
+        margin: 6px 0; */
+        width: calc((100% - 24px) / 2); /* 24px = 2 x right margin */
+        margin-bottom: 12px; /* margins collapse on each other so add bottom margin only */
+    }
+
+    .gallery:nth-of-type(even) {
+        margin-right: 0; /* remove right margin form every second item */
+    }
+}
+  
+@media only screen and (max-width: 500px) {
+    .gallery {
+        color:blue;
+        width: 100%;
+    }
+
+    .gallery:nth-of-type(odd) {
+        margin-right: 0; /* remove right margin form every odd item */
+    }
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+    color:#283747;
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    font-family: cursive;
+}
+
+.pink-top-border {
+    border-top: 1px solid #FAE5D3;
+}
+
+/* 
+.hey {;
+    border: bold;
+    text:align-center; 
+}
+*/
+
+/* CHANGED form btn to btn-pink (you have used btn to style otehr elements) */
+.btn-pink {
+    background-color: #F1948A;
+    padding: 10px 20px;
+    /* magin:15px; */
+    font-weight: bold;
+    /*top border: dotted; 
+    right border: solid;
+    bottom border: double;
+    left border : dashed;*/
+    border-radius: 30px/10px;   
+}
+
+
+
+.fb-comments{
+    background-color:#FCF3CF;
+    padding: 0px 15px 0px 10px;    
+}
+
+/* Anime */
+
+/* USE css class selector instead of body element, because you have different backgrounds on each page */
+/* apart form global syles, it is always better to use class selectors instead of elements for styles */
+.anime {
+    color:white;
+    background-image: linear-gradient(to right top, #141112, #151214, #151415, #161517, #161618, #18191b, #1a1c1e, #1c1f21, #202527, #242a2c, #283031, #2d3636);
+}
+
+.anime-content {
+    max-width: 1100px; /* ADD maximum width for content */
+    margin: 0 auto; /* CENTER  content */
+}
+
+.anime-content img {
+    /* height:600px;
+    width:400px;
+    vertical-align: middle; */
+    border:1px dotted grey;
+    width: 40%;
+    margin-right: 30px; /* ADD separation form text */ 
+}
+
+/* ADD media queries for image width */ 
+@media only screen and (max-width: 700px) {
+    .anime-content img {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.anime-content p {
+    padding-top: 10px;
+    color: gray;
+    font-size: 25px;
+    /* opacity: 0.75; DO NOT use opacity for text, use solid color instead 
+    position: absolute;
+    top: 345px;
+    left: 450px;
+    */
+}
+
+.anime-content h2{font:size 20px;
+}
+
+.anime-content h3{margin-top:20px;
+
+}
+
+.anime-content h4 {
+    color: gray;
+    text-align: center;
+}
+  
+.anime-content h5 {
+    color: #f1f1f1;
+    opacity: 0.2;
+    text-align: center;
+}
+
+.anime-content figure {
+    text-align: center;
+}
+
+.b1 {
+    border: none;
+    background-image: linear-gradient(to right top, #141112, #151214, #151415, #161517, #161618, #18191b, #1a1c1e, #1c1f21, #202527, #242a2c, #283031, #2d3636);
+    color: white;
+    font-size:20px;
+    margin-top:20px ;
+    width: 150px;
+    height: 100px;
+}
+
+.anime--buttons,
+.anime-episodes,
+.anime-position {
+    display: flex; /* USE Flexbox for alignment */
+    flex-wrap: wrap; /* USE Flexbox for alignment */
+}
+
+.episodes {
+    background-image: linear-gradient(to right top, #000000, #070205, #0c040c, #0e0712, #0c0b18, #090e1a, #07111c, #04141d, #07161c, #0c181b, #11191a, #151a1a);
+    border-radius: 50%;
+    padding: 10px 50px;
+    color: lightgray;
+    margin: 10px 10px 10px 70px; /* ADD some margins */ 
+}
+
+/* ADD width and height here NOT inline so you can adjust the size for smaller screens */ 
+.open {
+    /*text-align: center;
+    margin: 0 auto;
+    display: block;*/
+    border: 2px dotted gray;
+    width: 500px;
+    height: 300px;
+}
+
+@media only screen and (max-width: 500px) {
+    .open {
+        width: 300px;
+        height: 180px;
+    }
+}
+
+/* ADD width and height here NOT inline */
+.position {
+    width: 200px;
+    height: 100px;
+}
+
+
+
+/* Movies */
+
+/* USE css class selector instead of body element, because you have different backgrounds on each page */
+/* apart form global syles, it is always better to use class selectors instead of elements for styles */
+.movies {
+    background-image:url("https://media.istockphoto.com/illustrations/light-tones-watercolor-background-illustration-id487358756");
+}
+
+.movies h2 {
+    text-align: center;
+    margin:10px;
+    font-size: 40px;
+}
+
+.movies h3 {
+    font-size: 50px;
+    margin: 10px;
+}
+   
+.movies ol {
+   margin-right: 20px;
+    color: gray;
+    font-size: 50px;
+    /*opacity: 0.75; 
+    position: absolute;
+    top: 1500px;
+    right: 700px;
+    */
+}
+
+.movie-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.man {
+    /* height: 400px;
+    width: 1100px;
+    vertical-align: middle; */
+    margin- top: 30px;
+    margin-bottom:30px;
+    margin-right:50px;
+    border: 1px dotted grey;
+    width: 100%;
+}
+
+.god {
+    border-top: 1px solid #F5A1EC;
+    border-bottom: 1px solid #F5A1EC;
+    /* bottom-left: 10px solid red;
+    text-align: left;
+    margin-left: 100px*/
+    font-size: 20px;
+}
+
+/*
+.dead {
+    text-align: center;
+    color: white;
+    opacity: 0.5;
+}
+*/
+
+.great {
+    /*width: 500px;
+    height: 400px;
+    margin: 500px;
+    vertical-align: right;
+    position: absolute;
+    top: 1100px;
+    left: 00px; */
+    border: 1px dotted grey;
+    width: 50%; /* ADD responsive width */ 
+}
+
+/* ADD media queries for image width */ 
+@media only screen and (max-width: 700px) {
+    .great {
+        width: 100%;
+    }
+}
+
+/* Sign Up */
+/* BE SPECIFIC with class selectors - you may have a form somewhere else with different styling */
+.signup form {
+    border:1px solid #ccc;
+}
+
+/* Full-width input fields */
+.signup input[type="text"],
+.signup input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: bold;
+    background: #d9d9d9;
+}
+
+.signup input[type="text"]:focus, 
+.signup input[type="password"]:focus {
+    background: #ddd;
+    /* outline: none; DO NOT REMOVE outline, you can only replace it with some other style 
+    - it is an accessibility feature and has to be visible in some way */
+}
+
+.signup input[type="checkbox"] {
+    margin-bottom: 15px;
+}
+
+.signup hr {
+    border: 1px solid #d9d9d9;
+    margin-bottom: 25px;
+}
+
+.blue {
+    font-family: Georgia, serif; /* ADD fallback font */
+}
+
+/* FORM buttons have different syntax , but you can use classes to style */
+.cancelbtn,
+.signupbtn {
+    background-color: #C0C0C0;
+    font-weight: bold;
+    /* padding: 14px 20px; */
+    padding: 14px 0;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    /* color: black;
+    opacity: 0.9; USE solid colors instead */
+    color: #111;
+    display: inline-block; /* ADD to place buttons side by side */
+    width: calc(50% - 2px); /* ADD space between buttons */
+}
+
+.cancelbtn:hover,
+.signupbtn:hover {
+    color: #333;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    /* padding: 14px 20px; ALREADY added */
+    background-color: #A9A9A9;
+}
+
+/* Float cancel and signup buttons and add an equal width 
+.cancelbtn,
+.signupbtn {
+    float: left;
+    width: 50%;
+}
+Extra styles for the signup button - class selector NOT IN USE (should be signupbtn)
+.signup { 
+    background-color :#161748;
+}
+*/
+
+.container {
+    padding: 16px; /* ADD padding here */
+    background-image:url("https://cdna.artstation.com/p/assets/images/images/012/222/908/large/gaelle-marco-background-athena-1.jpg?1533678279");
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn,
+    .signupbtn {
+        width: 100%;
+    }
+}
+
+/* Footer */
+.footer {
+    background-image: linear-gradient(to right top, #292b2e, #37383f, #48464f, #5b535f, #71606d);
+    text-align: center; /* align text for all footer content in one place */
+}
+
+.footer h6 {
+    /* text-align: center;
+    color: white;
+    opacity: 0.5 DO NOT use opacity for normal text, use solid off white color instead */
+    color: #cdcdcd;
+}
+
+.footer div {
+   padding: 50px 0; /* ADD spacing around the social links */ 
+}
+
+.fa {
+    /* padding: 20px; 
+    text-align: center;
+    margin: 50px 70px; */
+    padding-top: 12px; /*  ADD padding only to the top to align vertically */
+    font-size: 30px;
+    width: 55px;
+    height: 55px; /* ADD height to make a round button */
+    text-decoration: none;
+    border-radius: 50%;
+    margin: 0 15px; /* ADD less margin or add media queries for smaller screens */
+}
+  
+.fa:hover {
+    opacity: 0.7;
+}
+  
+.fa-facebook {
+    background: #3B5998;
+    color: white; 
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+  
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+  
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+  
+.fa-pinterest {
+    background: #cb2027;
+    color: white;
+}
